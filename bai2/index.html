@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chia đội</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Chương trình chia đội</h1>
+    <form>
+        <label for="inputArr">Nhập mảng cân nặng:</label><br>
+        <input type="text" id="inputArr" name="inputArr"><br><br>
+        <button type="button" onclick="splitTeam()">Chia đội</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function splitTeam() {
+            let inputArr = document.getElementById("inputArr").value;
+            inputArr = inputArr.split(", ");
+            let team1Weight = 0, team2Weight = 0;
+            for (let i = 0; i < inputArr.length; i++) {
+                if (i % 2 == 0) {
+                    team1Weight += parseInt(inputArr[i]);
+                } else {
+                    team2Weight += parseInt(inputArr[i]);
+                }
+            }
+            document.getElementById("result").innerHTML = `[${team1Weight}, ${team2Weight}]`;
+        }
+    </script>
+</body>
+
+</html>

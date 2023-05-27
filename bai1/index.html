@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Max Adjacent Product</title>
+</head>
+
+<body>
+    <h1>Find Max Adjacent Product</h1>
+    <label for="input">Input:</label>
+    <input type="text" id="input" placeholder="input array">
+    <button onclick="adjacentElementsProduct()">Find</button>
+    <p id="result"></p>
+
+    <script>
+        function adjacentElementsProduct() {
+            const input = document.getElementById("input").value;
+            const arr = input.split(",").map(Number);
+
+            let maxProduct = -Infinity;
+
+            for (let i = 0; i < arr.length - 1; i++) {
+                const product = arr[i] * arr[i + 1];
+                if (product > maxProduct) {
+                    maxProduct = product;
+                }
+            }
+
+            const result = document.getElementById("result");
+            result.innerHTML = "Result: " + maxProduct;
+        }
+    </script>
+</body>
+
+</html>
